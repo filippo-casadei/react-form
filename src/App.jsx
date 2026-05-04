@@ -3,11 +3,11 @@ import { useState } from 'react';
 import './App.css'
 
 function App() {
+
+    const [titolo, setTitolo] = useState("");
+    const [contenuto, setContenuto] = useState("");
     return (
         <>
-
-            const [titolo, setTitolo] = useState("");
-            const [contenuto, setContenuto] = useState("");
 
             <div className="container mt-4">
 
@@ -19,12 +19,24 @@ function App() {
 
                     <div className="mb-3">
                         <label className="form-label">Titolo</label>
-                        <input className="form-control" />
+                        <input
+                            className="form-control"
+                            value={titolo}
+                            onChange={function (event) {
+                                setTitolo(event.target.value)
+                            }}
+                        />
                     </div>
 
                     <div className="mb-3">
                         <label className="form-label">Contenuto</label>
-                        <textarea className="form-control"></textarea>
+                        <textarea
+                            className="form-control"
+                            value={contenuto}
+                            onChange={function (event) {
+                                setContenuto(event.target.value)
+                            }}
+                        ></textarea>
                     </div>
 
                     <button className="btn btn-primary">
