@@ -6,6 +6,25 @@ function App() {
 
     const [titolo, setTitolo] = useState("");
     const [contenuto, setContenuto] = useState("");
+
+    const [articoli, setArticoli] = useState([]);
+    function aggiungiArticolo() {
+
+        const nuovoArticolo = {
+            id: crypto.randomUUID(),
+            titolo: titolo,
+            contenuto: contenuto
+        };
+
+        const nuovaLista = [...articoli, nuovoArticolo];
+
+        setArticoli(nuovaLista);
+
+        setTitolo("");
+        setContenuto("");
+    }
+
+    
     return (
         <>
 
@@ -39,7 +58,8 @@ function App() {
                         ></textarea>
                     </div>
 
-                    <button className="btn btn-primary">
+                    <button className="btn btn-primary"
+                    onClick={aggiungiArticolo}>
                         Aggiungi articolo
                     </button>
 
