@@ -24,7 +24,28 @@ function App() {
         setContenuto("");
     }
 
-    
+
+
+    let contenutoDaMostrare = "";
+    if (articoli.length === 0) {
+        contenutoDaMostrare = <p>Nessun articolo ancora presente</p>;
+    } else {
+        contenutoDaMostrare = articoli.map(function (articolo) {
+
+            return (
+                <div key={articolo.id} className="card p-3 mb-3">
+
+                    <h3>{articolo.titolo}</h3>
+
+                    <p>{articolo.contenuto}</p>
+
+                </div>
+            );
+
+        });
+    }
+
+
     return (
         <>
 
@@ -59,7 +80,7 @@ function App() {
                     </div>
 
                     <button className="btn btn-primary"
-                    onClick={aggiungiArticolo}>
+                        onClick={aggiungiArticolo}>
                         Aggiungi articolo
                     </button>
 
@@ -68,7 +89,7 @@ function App() {
                 <div>
                     <h4>Articoli pubblicati</h4>
 
-                    <p>Nessun articolo ancora presente</p>
+                    {contenutoDaMostrare}
                 </div>
 
             </div>
